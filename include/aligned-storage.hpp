@@ -18,7 +18,7 @@ public:
 
     T *get(const size_t index)
     {
-        return std::static_cast<T*>(begin) + index;
+        return static_cast<T*>(begin) + index;
     }
 };
 
