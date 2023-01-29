@@ -7,7 +7,7 @@ class AlignedStorage
 private:
     uint8_t storage[sizeof(T) * Size + alignof(T)];
 
-    inline T *begin() const
+    inline T *begin()
     {
         uintptr_t padding = (uintptr_t)((void *)(storage)) % alignof(T);
         if (padding != 0)
@@ -17,7 +17,7 @@ private:
     }
 
 public:
-    inline T *get(const size_t index) const
+    inline T *get(const size_t index)
     {
         return begin() + index;
     }
