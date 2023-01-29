@@ -7,16 +7,16 @@ class AlignedStorage
 private:
     uint8_t storage[sizeof(T) * Size + alignof(T)];
 
-public:
-    inline void *begin()
+    inline T *begin()
     {
         uintptr_t padding = (uintptr_t)((void *)(storage)) % alignof(T);
         return padding == 0 ? storage : storage + alignof(T) - padding;
     }
 
+public:
     inline T *get(const size_t index)
     {
-        return static_cast<T *>(begin()) + index;
+        return begin() + index;
     }
 };
 
