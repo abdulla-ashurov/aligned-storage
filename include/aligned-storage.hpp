@@ -11,9 +11,9 @@ private:
     {
         uintptr_t padding = (uintptr_t)((void *)(storage)) % alignof(T);
         if (padding != 0)
-            return (T*)(storage + alignof(T) - padding);
+            return (T *)(storage + alignof(T) - padding);
 
-        return (T*)(storage);
+        return (T *)(storage);
     }
 
 public:
